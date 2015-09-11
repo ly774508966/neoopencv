@@ -8,7 +8,7 @@ MACHINE = $(shell $(CC) -dumpmachine)
 #   mingw32
 ifneq (,$(or $(findstring mingw, $(MACHINE)), $(findstring cygwin, $(MACHINE))))
 	PLATFORM = WIN
-	LIBS = -L../opencv_win64/mingw/lib -lopencv_highgui246 -lopencv_core246 -lopencv_imgproc246 -lopencv_nonfree246 -lopencv_features2d246 -lopencv_flann246 -lm
+	LIBS = -L../opencv_win64/mingw/lib -lopencv_highgui246 -lopencv_core246 -lopencv_imgproc246 -lopencv_nonfree246 -lopencv_features2d246 -lopencv_flann246 -lopencv_imgproc246 -lm
 	#-lgdi32 -luser32 -Wl,--subsystem,windows
 	RM = del /f/s/q
 	RMDIR = rmdir /s/q
@@ -58,8 +58,10 @@ run:
 	copy ..\\opencv_win64\mingw\\bin\\libopencv_features2d246.dll ..\\execute\\
 	copy ..\\opencv_win64\mingw\\bin\\libopencv_nonfree246.dll ..\\execute\\
 	copy ..\\opencv_win64\mingw\\bin\\libopencv_flann246.dll ..\\execute\\
+	copy ..\\opencv_win64\mingw\\bin\\libopencv_imgproc246.dll ..\\execute\\
 	copy .\\I1_000000.png ..\\execute\\
 	copy .\\I2_000000.png ..\\execute\\
+	copy .\\ar1.jpg ..\\execute\\
 #$(TARGET)
 	@echo --[Finished RUN]--
 
